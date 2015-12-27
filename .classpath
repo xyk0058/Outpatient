@@ -10,5 +10,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Program Files/MySQL/Connector J 5.1.23/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-8.0.21/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-8.0.21/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-8.0.21/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-8.0.21/lib/tomcat-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
