@@ -165,6 +165,42 @@ public class DoctorDaoImp implements DoctorDao{
 		return doctorList;
 	}
 	
+	/**
+	 * get all Doctor element from table where department_id is same
+	 * if the action is do correct,return the list of Doctor,
+	 * else return null
+	 * @return doctorList
+	 */
+	public ArrayList<Doctor> getDoctorListByDepartment(int department_id) {
+		
+		ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
+		String sql = "select * from doctor where department_id = ?";
+		
+		Connection conn = new DBUtilFactory().getConn();
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Doctor doctor = new Doctor();
+				
+				// stupid set method......
+				doctor.setDepartment_id(rs.getInt("department_id"));
+				doctor.setDoctor_id(rs.getInt("doctor_id"));
+				doctor.setDoctor_level(rs.getString("doctor_level"));
+				doctor.setDoctor_name(rs.getString("doctor_name"));
+				doctor.setDoctor_score(rs.getInt("doctor_score"));
+				doctor.setDoctor_sex(rs.getString("doctor_sex"));
+				doctor.setRole_id(rs.getInt("role_id"));
+				
+				doctorList.add(doctor);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			clearUp(conn);
+		}
+		return doctorList;
+	}
 	
 	/**
 	 * get all doctor element from table by id
