@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -15,7 +16,7 @@
 				患者信息管理
 			</dt>
 			<dd>
-				<a href="D_inneruser_list.htm" target="main">查询患者信息</a>
+				<a href="D_inneruser_list.jsp" target="main">查询患者信息</a>
 			</dd>
 			
 		</dl>
@@ -26,10 +27,10 @@
 				电子病历管理
 			</dt>
 			<dd>
-				<a href="D_case_history.htm" target="main">查询历史病历</a>
+				<a href="D_case_history.jsp" target="main">查询历史病历</a>
 			</dd>
 			<dd>
-				<a href="D_medicine_list.htm" target="main">开处方</a>
+				<a href="D_medicine_list.jsp" target="main">开处方</a>
 			</dd>
 		</dl>
 
@@ -38,10 +39,10 @@
 				挂号管理
 			</dt>
 			<dd>
-				<a href="D_transfer_department.htm" target="main">科室转号</a>
+				<a href="D_transfer_department.jsp" target="main">科室转号</a>
 			</dd>
 			<dd>
-				<a href="D_physical_test.htm" target="main">体检化验预约</a>
+				<a href="D_physical_test.jsp" target="main">体检化验预约</a>
 			</dd>
 		</dl>
 		

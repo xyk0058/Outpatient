@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -12,8 +13,7 @@
 		<div class="mtitle">
 			体检化验
 		</div>
-		<br />
-		
+		<br />		
 		
 
 		<br />
@@ -62,13 +62,15 @@
 							<input name="" type="checkbox" value="16" />尿液体检
 							<input name="" type="checkbox" value="17" />血常规
 							<input name="" type="checkbox" value="18" />尿常规
-							肿瘤检查:<br />
+							<br />
+							<input name="" type="checkbox" value="27" />肿瘤检查
 							<input name="" type="checkbox" value="19" />肿瘤化验
 							<br /><br />
 							其他检查:<br />
 							<input name="" type="checkbox" value="20" />盆腔彩超
 							<input name="" type="checkbox" value="21" />腹部彩超
 							<input name="" type="checkbox" value="22" />胸部透视
+							<br />
 							<input name="" type="checkbox" value="23" />骨密度
 							<br /><br />
 							五官科检查:<br />

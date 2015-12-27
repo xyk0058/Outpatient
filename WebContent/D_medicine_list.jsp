@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -7,137 +8,112 @@
 		<link href="css/style.css" rel="stylesheet" media="screen"
 			type="text/css" />
 		<!-- Use JavaScript script to open a new window display information when preview-->
-		<script>
+		<script type="text/javascript">
 			function preview(url) {
 				window.open(url,'Preview','toolbar=no,scrollbars=yes,width=720,height=560,top=50,left=100');
 			}
+			
+			//要确定行的唯一性（提示：你可以使用你的主键）
+			   var id=1;
+			   var MName = null;
+			   var MUser = null;
+			   var MAttation = null;
+			   var MNum =0;
+			   
+			//添加行的方法
+			   function addTr()
+			   { 
+			    //获得表格对象
+			    var tb=document.getElementById('MTable');
+			   
+			    //添加一行    
+			    var newTr = tb.insertRow(-1);//在最下的位置
+			   
+			    //给这个行设置id属性，以便于管理（删除）
+			    newTr.id='tr'+id;
+			    //设置对齐方式（只是告诉你，可以以这种方式来设置任何它有的属性）
+			    newTr.align='center';
+			    //添加两列    
+			    var newTd0 =  newTr.insertCell();    
+			    var newTd1 =  newTr.insertCell();
+			    var newTd2 =  newTr.insertCell();
+			    var newTd3 =  newTr.insertCell();
+			    var newTd4 =  newTr.insertCell();
+			    var newTd5 =  newTr.insertCell();
+			   
+			    //设置列内容和属性    
+			    newTd0.innerHTML = id; //让你看到删除的是指定的行
+			    newTd1.innerHTML ="<input type=\"text\" size=\"20\" name=\"MName\" value=\"\"/>";
+			    newTd2.innerHTML ="<input type=\"text\" size=\"20\" name=\"Mname\" value=\"\"/>";	    
+			    newTd3.innerHTML ="<input type=\"text\" size=\"20\" name=\"MAttation\" value=\"\"/>";
+			    newTd4.innerHTML ="<input type=\"text\" size=\"1\" name=\"MNum\" value=\"\"/>";
+			    newTd5.innerHTML= "<button onclick=\"moveTr('"+id+"');\" >移除</button>";
+			   
+			    id++;
+			   
+			   }
+			   
+			   //移除行的方法
+			   function moveTr(id)
+			   {
+			    //获得表格对象
+			    var tb=document.getElementById('MTable');
+			    //根据id获得将要删除行的对象
+			    var tr=document.getElementById('tr'+id);
+			    //取出行的索引，设置删除行的索引
+			    tb.deleteRow(tr.rowIndex);
+			   
+			   }
+ 
 		</script>
 	</head>
 
+
 	<body>
-		<div class="mtitle">
+		<div class="mtitle" >
 			患者处方
 		</div>
 		
-		<div class="search">
-			<form>
-				搜索药品:
-				<input value="药品名/药品编号" />
-				&nbsp;&nbsp;
-				<input type="submit" value="Search" class="search-submit"/> <br />
-			</form>
-		</div>
+	   <center>  药方内容：
+   <table id="MTable" border="2" bordercolor="black" width="700px" height="30px">
+    <tr>
+     <td>
+      标号
+     </td>
+     <td>
+      药品名称
+     </td>
+     <td>
+      药剂具体使用事项
+     </td>
+     <td>
+    药品使用注意事项 
+     </td>
+     <td>
+     数量
+     </td>
+     <td>
+   操作
+     </td>
+    </tr>
+</table>
+   <button onclick="addTr();">添加</button>
 
-		<div class="list">
-		  <table>
-			 <tr>
-				<th>
-					药品编号
-				</th>
-				<th>
-					药品名
-				</th>
-				<th width="270px">
-					基本信息
-				</th>
-				<th>
-					数量
-				</th>
-				<th class="th1">
-					操作
-				</th>
-				
-			</tr>
-			<tr>	
-				<td>
-					AC8924
-				</td>
-				<td class="tdname">
-					<a href="javascript:preview('contractDetail.htm');">藿香正气水</a>
-				</td>
-				<td>
-					趋热解毒
-				</td>
-				<td><input type="text" size="1" name="2" value="1"/>
-				</td>
-				
-				<td class="operate">
-				    <a href="D_medicine_paper.htm">
-						<img src="images/information.png"  alt="Countersign  opinion" />
-						添加
-					</a> 
-					&nbsp;|&nbsp;
-					<a href="dgContract.htm">
-						<img src="images/icon-edit.png"  alt="Finalize " />
-						删除
-					</a>
-				</td>
-			</tr>
-			
-			<tr>	
-				<td>
-					BT6245
-				</td>
-				<td class="tdname">
-					<a href="javascript:preview('contractDetail.htm');">阿莫西陵胶囊</a>
-				</td>
-				<td>
-					消炎
-				</td>
-				<td>
-				<input type="text" size="1" name="2" value="1"/></td>
-				<td class="operate">
-					<a href="javascript:preview('showHQOpinion.htm');">
-						<img src="images/information.png"  alt="Countersign  opinion" />
-						添加
-					</a> 
-					&nbsp;|&nbsp;
-					<a href="dgContract.htm">
-						<img src="images/icon-edit.png"  alt="Finalize " />
-						删除
-					</a>
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="3"> </td>
-			</tr>	
-		  </table>
-		  <div align="right" class="pagelist">					
-			<a href="#"><img src="images/page/first.png"  alt="" /></a> &nbsp;
-			<a href="#"><img src="images/page/pre.png"  alt="" /></a>&nbsp;
-			<a href="#"><img src="images/page/next.png"  alt="" /></a>&nbsp;
-			<a href="#"><img src="images/page/last.png"  alt="" /></a>&nbsp;
-					
-			<span class="pageinfo">
-				Total&nbsp;<strong>2</strong>&nbsp;pages&nbsp;<strong>13</strong>&nbsp;records
-			</span>	
-		</div>
-		  
-		
-		  <table>
+  
+		<table>
 		        <tr>
 					<td>患者症状:</td>
 					<td>
 						<textarea rows="4" cols="40" name="content" style="width:500px;height:150px;"></textarea>
 					</td>
 				</tr>
-		        
-		        <tr>
-					<td>药方内容:</td>
-					<td>
-						<textarea rows="4" cols="40" name="content" style="width:500px;height:150px;"></textarea>
-					</td>
-				</tr>
-				
 				<tr height="28">
 					<td align="center" colspan="2">
-						<input type="submit" value="提交" class="button"> &nbsp; &nbsp; &nbsp;
+						&nbsp; &nbsp;<input type="submit" value="提交" class="button"> &nbsp; &nbsp; &nbsp;
+						
 					</td>
 				</tr>
-			</table>
-		</div>
-
-		
+		</table>	
+	</center>	       
 	</body>
 </html>
