@@ -10,12 +10,12 @@
 
 	<!-- Frame structure:upper, middle (left, right), under-->
 	<frameset rows="100,*,70" frameborder="no" border="0">
-		<frame src="header2.htm"  scrolling="no"/>
+		<frame src="header2.jsp"  scrolling="no"/>
 		<frameset cols="250,*" >
-			<frame src="left2.htm"  scrolling="no"/>
-			<frame src="welcome.htm"  name="main"  scrolling="auto"/>
+			<frame src="D_left2.jsp"  scrolling="no"/>
+			<frame src="welcome.jsp"  name="main"  scrolling="auto"/>
 		</frameset>
-		<frame src="footer2.htm" scrolling="no"/>
+		<frame src="footer2.jsp" scrolling="no"/>
 	</frameset>
 	<!-- Set prompt message for browser that does not support Frame structure-->
 	<noframes>

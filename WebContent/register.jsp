@@ -12,8 +12,8 @@
 		<!-- header start -->
 		<div class="header">
 			<div class="toplinks">
-				<span>[<a href="register.htm">注册</a>][<a
-					href="login.htm">登陆</a>]</span>
+				<span>[<a href="register.jsp">注册</a>][<a
+					href="login.jsp">登陆</a>]</span>
 			</div>
 
 			<h1>
@@ -24,7 +24,7 @@
 
 		<!-- main start -->
 		<div class="main">
-			<form action="#" method="post">
+			<form action="login.jsp" method="post">
 
 				<div class="register_main">
 					<table>

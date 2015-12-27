@@ -18,8 +18,8 @@
 		<!-- header start -->
 		<div class="header">
 			<div class="toplinks">
-				<span> [<a href="login.htm" target="_top">注册</a>]
-					&nbsp;|&nbsp; [<a href="register.htm">登陆</a>] </span>
+				<span> [<a href="login.jsp" target="_top">注册</a>]
+					&nbsp;|&nbsp; [<a href="register.jsp">登陆</a>] </span>
 			</div>
 
 			<h1>
@@ -30,7 +30,7 @@
 
 		<!-- main start -->
 		<div class="main">
-			<form action="#" method="post">
+			<form action="frame1.jsp" method="post">
 
 				<div class="register_main">
 					<table>

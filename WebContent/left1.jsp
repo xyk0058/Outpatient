@@ -19,10 +19,10 @@
 				用户管理
 			</dt>
 			<dd>
-				<a href="inneruser_list.htm" target="main">内部人员管理</a>
+				<a href="inneruser_list.jsp" target="main">内部人员管理</a>
 			</dd>
 			<dd>
-				<a href="patients_list.htm" target="main">注册用户管理</a>
+				<a href="patients_list.jsp" target="main">注册用户管理</a>
 			</dd>
 		</dl>
 		
@@ -36,7 +36,7 @@
 				医疗卡管理
 			</dt>
 			<dd>
-				<a href="hcard_list.htm"  target="main">医疗卡列表</a>
+				<a href="hcard_list.jsp"  target="main">医疗卡列表</a>
 			</dd>
 		</dl>
 		<!--
@@ -49,10 +49,10 @@
 				挂号管理
 			</dt>
 			<dd>
-				<a href="preregister_list.htm"  target="main">预约挂号</a>
+				<a href="preregister_list.jsp"  target="main">预约挂号</a>
 			</dd>
 			<dd>
-				<a href="register_list.htm"  target="main">现场挂号</a>
+				<a href="register_list.jsp"  target="main">现场挂号</a>
 			</dd>
 		</dl>
 		<!--
@@ -79,7 +79,7 @@
 				反馈管理
 			</dt>
 			<dd>
-				<a href="feedback_list.htm"  target="main">反馈记录</a>
+				<a href="feedback_list.jsp"  target="main">反馈记录</a>
 			</dd>
 		</dl>
 		

@@ -80,7 +80,7 @@
 				</td>
 				
 				<td>
-					<a href="edit_patients.htm">
+					<a href="edit_patients.jsp">
 						<img src="images/icon-edit.png"  alt="Edit" />
 						操作
 					</a>

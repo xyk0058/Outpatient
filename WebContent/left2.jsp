@@ -19,7 +19,7 @@
 				用户管理
 			</dt>
 			<dd>
-				<a href="inneruser_list.htm" target="main">修改个人资料</a>
+				<a href="inneruser_list.jsp" target="main">修改个人资料</a>
 			</dd>
 			
 		</dl>

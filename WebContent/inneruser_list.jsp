@@ -30,11 +30,11 @@
 		  </div>
 
 		  <div style="float:left;width:180px;">
-			<a href="addCustomer.htm">
+			<a href="addCustomer.jsp">
 				<img src="images/add.png"  alt="Add Customer" />
 				添加用户
 			</a>
-			<a href="addCustomer.htm">
+			<a href="addCustomer.jsp">
 				<img src="images/add.png"  alt="Add Customer" />
 				导入用户
 			</a>
@@ -68,11 +68,11 @@
 				</td>
 				
 				<td class="tdname">
-					<a href="javascript:preview('inneruser_detail.htm');">医生</a>
+					<a href="javascript:preview('inneruser_detail.jsp');">医生</a>
 				</td>
 				
 				<td>
-					<a href="edit_inneruser.htm">
+					<a href="edit_inneruser.jsp">
 						<img src="images/icon-edit.png"  alt="Edit" />
 						修改
 					</a>
