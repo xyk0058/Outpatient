@@ -34,7 +34,7 @@ public class PrescriptionDaoImp implements PrescriptionDao{
 	public boolean deletePrescription(String prescription_id){
 		String sql = "delete from prescription where prescription_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, prescription_id);
@@ -61,7 +61,7 @@ public class PrescriptionDaoImp implements PrescriptionDao{
 				+ "(`patient_id`, `doctor_id`, "
 				+ "`medicine_list`, `evaluate_score`, `trade_id`) "
 				+ "VALUES (?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, prescription.getPatient_id());
@@ -77,7 +77,7 @@ public class PrescriptionDaoImp implements PrescriptionDao{
 		}
 		int prescription_id = -1;
 		sql = "select max(prescription_id) as id from prescription;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -105,7 +105,7 @@ public class PrescriptionDaoImp implements PrescriptionDao{
 	public ArrayList<Prescription> getPrescription () {
 		ArrayList<Prescription> list = new ArrayList<Prescription>();
 		String sql = "select * from prescription;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -139,7 +139,7 @@ public class PrescriptionDaoImp implements PrescriptionDao{
 	public Prescription getPatient(int prescription_id) {
 		Prescription prescription = new Prescription();
 		String sql = "select * from prescription;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, prescription_id);

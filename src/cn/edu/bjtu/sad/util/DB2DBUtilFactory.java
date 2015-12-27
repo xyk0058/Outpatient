@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * This Class is the real Factory of DBUtilFactory.
  * @author sunshine
  */
-public class DBUtilFactory extends DBUtilAbstractFactory{
+public class DB2DBUtilFactory extends DBUtilAbstractFactory{
 
 	private Connection conn;
 	
@@ -25,7 +25,7 @@ public class DBUtilFactory extends DBUtilAbstractFactory{
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/outpatient?useUnicode=true&amp;characterEncoding=UTF-8";
             String username = "root";
-            String password = "clotho";
+            String password = "";
             conn = DriverManager.getConnection(url, username, password);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -35,4 +35,5 @@ public class DBUtilFactory extends DBUtilAbstractFactory{
 		}
 		return conn;
 	}
+
 }

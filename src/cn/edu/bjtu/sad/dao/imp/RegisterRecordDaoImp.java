@@ -30,7 +30,7 @@ public class RegisterRecordDaoImp implements RegisterRecordDao{
 	public boolean deleteRegisterRecord(String register_id){
 		String sql = "delete from registerrecord where register_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, register_id);
@@ -57,7 +57,7 @@ public class RegisterRecordDaoImp implements RegisterRecordDao{
 				+ "(`doctor_id`, `patient_id`, `register_time`, "
 				+ "`register_price`, `department_id`, `trade_id`) "
 				+ "VALUES (?, ?, ?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, register.getDoctor_id());
@@ -75,7 +75,7 @@ public class RegisterRecordDaoImp implements RegisterRecordDao{
 		}
 		int register_id = -1;
 		sql = "select max(register_id) as id from registerrecord;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -102,7 +102,7 @@ public class RegisterRecordDaoImp implements RegisterRecordDao{
 	public ArrayList<RegisterRecord> getRegisterRecord() {
 		ArrayList<RegisterRecord> list = new ArrayList<RegisterRecord>();
 		String sql = "select * from registerrecord;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -137,7 +137,7 @@ public class RegisterRecordDaoImp implements RegisterRecordDao{
 	public RegisterRecord getRegisterRecord(int register_id) {
 		RegisterRecord register = new RegisterRecord();
 		String sql = "select * from registerrecord where register_id = ?;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, register_id);

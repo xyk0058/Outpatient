@@ -30,7 +30,7 @@ public class DoctorDaoImp implements DoctorDao{
 	public boolean deleteDoctor(String doctor_id){
 		String sql = "delete from doctor where doctor_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, doctor_id);
@@ -57,7 +57,7 @@ public class DoctorDaoImp implements DoctorDao{
 				+ "(`doctor_name`, `doctor_sex`, "
 				+ "`doctor_level`, `doctor_score`, `department_id`, `role_id`) "
 				+ "VALUES (?, ?, ?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, doctor.getDoctor_name());
@@ -75,7 +75,7 @@ public class DoctorDaoImp implements DoctorDao{
 		}
 		int doctor_id = -1;
 		sql = "select max(doctor_id) as id from doctor;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -107,7 +107,7 @@ public class DoctorDaoImp implements DoctorDao{
 				+ "`doctor_level`= ?, `doctor_score`= ?, `department_id`= ?, "
 				+ "`role_id`= ? WHERE (`doctor_id`= ?);";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, doctor.getDoctor_name());
@@ -139,7 +139,7 @@ public class DoctorDaoImp implements DoctorDao{
 		ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
 		String sql = "select * from doctor";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -177,7 +177,7 @@ public class DoctorDaoImp implements DoctorDao{
 		
 		String sql = "select * from doctor where doctor_id = ?;";
 		Doctor doctor = new Doctor();
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, doctor_id);

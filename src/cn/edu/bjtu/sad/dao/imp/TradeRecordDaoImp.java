@@ -32,7 +32,7 @@ public class TradeRecordDaoImp implements TradeRecordDao{
 	public boolean deleteTradeRocord(String trade_id){
 		String sql = "delete from traderecord where trade_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, trade_id);
@@ -60,7 +60,7 @@ public class TradeRecordDaoImp implements TradeRecordDao{
 				+ "`pre_time`, `final_time`, `trade_detail`, "
 				+ "`isPrePay`, `isFinalPay`) "
 				+ "VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, record.getPatient_id());
@@ -79,7 +79,7 @@ public class TradeRecordDaoImp implements TradeRecordDao{
 		}
 		int trade_id = -1;
 		sql = "select max(trade_id) as id from traderecord;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -107,7 +107,7 @@ public class TradeRecordDaoImp implements TradeRecordDao{
 	public ArrayList<TradeRecord> getTradeRecord() {
 		ArrayList<TradeRecord> list = new ArrayList<TradeRecord>();
 		String sql = "select * from traderecord;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -143,7 +143,7 @@ public class TradeRecordDaoImp implements TradeRecordDao{
 	public TradeRecord getTradeRecord(int trade_id) {
 		TradeRecord record = new TradeRecord();
 		String sql = "select * from traderecord where trade_id = ?;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, trade_id);

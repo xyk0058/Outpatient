@@ -32,7 +32,7 @@ public class LaboratoryDaoImp implements LaboratoryDao{
 	public boolean deleteLaboratory(String laboratory_id){
 		String sql = "delete from laboratory where laboratory_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, laboratory_id);
@@ -58,7 +58,7 @@ public class LaboratoryDaoImp implements LaboratoryDao{
 		String sql = "INSERT INTO `outpatient`.`laboratory` "
 				+ "(`laboratory_name`, `patient_id`, `doctor_id`, `report`, `trade_id`) "
 				+ "VALUES (?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, laboratory.getLaboratory_name());
@@ -75,7 +75,7 @@ public class LaboratoryDaoImp implements LaboratoryDao{
 		}
 		int laboratory_id = -1;
 		sql = "select max(laboratory_id) as id from laboratory;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -102,7 +102,7 @@ public class LaboratoryDaoImp implements LaboratoryDao{
 	public ArrayList<Laboratory> getLaboratoryList () {
 		ArrayList<Laboratory> list = new ArrayList<Laboratory>();
 		String sql = "select * from laboratory;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -137,7 +137,7 @@ public class LaboratoryDaoImp implements LaboratoryDao{
 		
 		String sql = "select * from laboratory where laboratory_id = ?;";
 		Laboratory laboratory = new Laboratory();
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, laboratory_id);

@@ -31,7 +31,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 	public boolean deleteDepartment(String department_id){
 		String sql = "delete from department where department_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, department_id);
@@ -57,7 +57,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 		String sql = "INSERT INTO `outpatient`.`dempartment` "
 				+ "(`department_name`, `department_detail`, `avaliable_num`) "
 				+ "VALUES (?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, dep.getDepartment_name());
@@ -72,7 +72,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 		}
 		int department_id = -1;
 		sql = "select max(department_id) as id from department;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -104,7 +104,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 				+ "`department_detail`= ?, `avaliable_num`= ? "
 				+ "WHERE (`department_id`= ? );";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, dep.getDepartment_name());
@@ -133,7 +133,7 @@ public class DepartmentDaoImp implements DepartmentDao{
 		ArrayList<Department> list = new ArrayList<Department>();
 		String sql = "select * from admin_list";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();

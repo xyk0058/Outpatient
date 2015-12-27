@@ -32,7 +32,7 @@ public class UserDaoImp implements UserDao{
 	public boolean deleteUser(String user_id){
 		String sql = "delete from user where user_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user_id);
@@ -58,7 +58,7 @@ public class UserDaoImp implements UserDao{
 		String sql = "INSERT INTO `outpatient`.`user` "
 				+ "(`user_name`, `password`, `role_id`, `phone_number`) "
 				+ "VALUES (?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUser_name());
@@ -74,7 +74,7 @@ public class UserDaoImp implements UserDao{
 		}
 		int user_id = -1;
 		sql = "select max(user_id) as id from user;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -102,7 +102,7 @@ public class UserDaoImp implements UserDao{
 	public ArrayList<User> getUser() {
 		ArrayList<User> list = new ArrayList<User>();
 		String sql = "select * from user;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -136,7 +136,7 @@ public class UserDaoImp implements UserDao{
 	public User getUser(int user_id) {
 		User user = new User();
 		String sql = "select * from user where user_id = ?;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, user_id);

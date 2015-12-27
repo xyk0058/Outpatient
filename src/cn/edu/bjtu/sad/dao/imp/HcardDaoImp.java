@@ -30,7 +30,7 @@ public class HcardDaoImp implements HcardDao{
 	public boolean deleteHcard(String hcard_id){
 		String sql = "delete from hcard where hcard_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, hcard_id);
@@ -56,7 +56,7 @@ public class HcardDaoImp implements HcardDao{
 		String sql = "INSERT INTO `outpatient`.`hcard` "
 				+ "(`idcard_number`, `phone_number`, `crash_card`)"
 				+ " VALUES (?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, hcard.getIdcard_number());
@@ -71,7 +71,7 @@ public class HcardDaoImp implements HcardDao{
 		}
 		int hcard_id = -1;
 		sql = "select max(hcard_id) as id from hcard;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -100,7 +100,7 @@ public class HcardDaoImp implements HcardDao{
 		
 		String sql = "select * from hcard where hcard_id = ?;";
 		Hcard hcard = new Hcard();
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, hcard_id);

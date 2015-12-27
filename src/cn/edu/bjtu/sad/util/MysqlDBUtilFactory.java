@@ -1,8 +1,10 @@
 package cn.edu.bjtu.sad.util;
 
-import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import com.mysql.jdbc.Connection;
 
 
 /**
@@ -10,7 +12,7 @@ import java.sql.SQLException;
  * This Class is the real Factory of DBUtilFactory.
  * @author sunshine
  */
-public class DBUtilFactory extends DBUtilAbstractFactory{
+public class MysqlDBUtilFactory extends DBUtilAbstractFactory{
 
 	private Connection conn;
 	
@@ -25,8 +27,8 @@ public class DBUtilFactory extends DBUtilAbstractFactory{
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://127.0.0.1:3306/outpatient?useUnicode=true&amp;characterEncoding=UTF-8";
             String username = "root";
-            String password = "clotho";
-            conn = DriverManager.getConnection(url, username, password);
+            String password = "";
+            conn = (Connection) DriverManager.getConnection(url, username, password);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -35,4 +37,5 @@ public class DBUtilFactory extends DBUtilAbstractFactory{
 		}
 		return conn;
 	}
+
 }

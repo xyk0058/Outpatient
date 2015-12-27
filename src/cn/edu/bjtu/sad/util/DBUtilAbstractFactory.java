@@ -8,7 +8,5 @@ import java.sql.Connection;
  * @author sunshine
  */
 public abstract class DBUtilAbstractFactory {
-    public abstract Connection getMysqlConn();
-    public abstract Connection getOracleConn();
-    public abstract Connection getDB2Conn();
+    public abstract Connection getConn();
 }

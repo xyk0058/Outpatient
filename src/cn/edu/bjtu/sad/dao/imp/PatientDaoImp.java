@@ -32,7 +32,7 @@ public class PatientDaoImp implements PatientDao{
 	public boolean deletePatient(String patient_id){
 		String sql = "delete from patient where patient_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, patient_id);
@@ -60,7 +60,7 @@ public class PatientDaoImp implements PatientDao{
 				+ "`patient_age`, `idcard_number`, `phone_number`,"
 				+ " `hcard_id`, `user_id`) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, patient.getPatient_name());
@@ -79,7 +79,7 @@ public class PatientDaoImp implements PatientDao{
 		}
 		int patient_id = -1;
 		sql = "select max(patient_id) as id from patient;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -106,7 +106,7 @@ public class PatientDaoImp implements PatientDao{
 	public ArrayList<Patient> getPatientList () {
 		ArrayList<Patient> list = new ArrayList<Patient>();
 		String sql = "select * from patient;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -141,7 +141,7 @@ public class PatientDaoImp implements PatientDao{
 	public Patient getPatient(int patient_id) {
 		Patient patient = new Patient();
 		String sql = "select * from patient where patient_id = ?;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, patient_id);

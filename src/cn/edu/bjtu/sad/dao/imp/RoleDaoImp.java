@@ -32,7 +32,7 @@ public class RoleDaoImp implements RoleDao{
 	public boolean deleteRole(String role_id){
 		String sql = "delete from role where role_id = ?;";
 		
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, role_id);
@@ -58,7 +58,7 @@ public class RoleDaoImp implements RoleDao{
 		String sql = "INSERT INTO `outpatient`.`role` "
 				+ "(`role_power`, `role_describe`) "
 				+ "VALUES (?, ?);";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, role.getRole_power());
@@ -72,7 +72,7 @@ public class RoleDaoImp implements RoleDao{
 		}
 		int role_id = -1;
 		sql = "select max(role_id) as id from role;";
-		conn = new DBUtilFactory().getMysqlConn();
+		conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -99,7 +99,7 @@ public class RoleDaoImp implements RoleDao{
 	public ArrayList<Role> getRole() {
 		ArrayList<Role> list = new ArrayList<Role>();
 		String sql = "select * from role;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -130,7 +130,7 @@ public class RoleDaoImp implements RoleDao{
 	public Role getRole(int role_id) {
 		Role role = new Role();
 		String sql = "select * from role where role_id = ?;";
-		Connection conn = new DBUtilFactory().getMysqlConn();
+		Connection conn = new DBUtilFactory().getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, role_id);
